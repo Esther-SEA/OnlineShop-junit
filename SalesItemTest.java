@@ -81,7 +81,32 @@ public class SalesItemTest
     public void commentTest()
     {
     }
+
+    @Test
+    public void comment()
+    {
+    }
+
+    @Test
+    public void addcommentTest()
+    {
+        SalesItem salesIte2 = new SalesItem("candy", 50);
+        salesIte2.addComment("karol", "I love this", 5);
+        salesIte2.addComment("karol", "I love this", 5);
+    }
+
+    @Test
+    public void boundaryTest()
+    {
+        SalesItem salesIte1 = new SalesItem("candy", 50);
+        assertEquals(false, salesIte1.addComment("karol", "I love this", 0));
+        salesIte1.addComment("Jules", "I love this", 6);
+    }
 }
+
+
+
+
 
 
 

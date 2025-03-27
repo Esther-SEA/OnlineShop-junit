@@ -182,3 +182,12 @@ public class SalesItem
         }
     }
 }
+
+
+
+
+/**
+ * 14. the methods are : CommentTest(),setUp() and tearDown()
+ * 17. The option i see is the show the source of the error.
+ * 
+ */
