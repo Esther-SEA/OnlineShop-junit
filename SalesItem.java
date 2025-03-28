@@ -115,9 +115,17 @@ public class SalesItem
         System.out.println("Price: " + priceString(price));
         System.out.println();
         System.out.println("Customer comments:");
-        for(Comment comment : comments) {
+        /**for(Comment comment : comments) {
             System.out.println("-------------------------------------------");
             System.out.println(comment.getFullDetails());
+        }*/
+        //Question 21
+        int index = 0;
+        while( index < comments.size()){
+            Comment comment = comments.get(index);
+            System.out.println("-------------------------------------------");
+            System.out.println(comment.getFullDetails());
+            index ++;
         }
         System.out.println();
         System.out.println("===========================================");
@@ -130,13 +138,24 @@ public class SalesItem
      */
     public Comment findMostHelpfulComment()
     {
-        Iterator<Comment> it = comments.iterator();
+        /**Iterator<Comment> it = comments.iterator();
         Comment best = it.next();
         while(it.hasNext()) {
             Comment current = it.next();
             if(current.getVoteCount() > best.getVoteCount()) {
                 best = current;
             }
+        }
+        return best;*/
+        //Question 21
+        int index = 0;
+        Comment best = comments.get(index);
+        while(index < comments.size()){
+            Comment current = comments.get(index);
+            if (current.getVoteCount() > best.getVoteCount()){
+                best = current;
+            }
+            index++;
         }
         return best;
     }
@@ -154,7 +173,7 @@ public class SalesItem
      * Find the comment by the author with the given name.
      * 
      * @return The comment if it exists; null if it doesn't.
-     */
+     
     private Comment findCommentByAuthor(String author)
     {
         for(Comment comment : comments) {
@@ -162,6 +181,19 @@ public class SalesItem
                 return comment;
             }
         }
+        return null;
+    }*/
+    
+    //Question 21
+    private Comment findCommentByAuthor(String author){
+        int index = 0;
+        while ( index < comments.size()){
+            Comment comment = comments.get(index);
+            if (comment.getAuthor().equals(author)){
+                    return comment;
+                }
+            index++;
+            }
         return null;
     }
     

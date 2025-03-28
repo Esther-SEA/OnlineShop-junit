@@ -39,4 +39,31 @@ public class CommentTest
     public void tearDown()
     {
     }
+
+    @Test
+    public void storedCorrectly()
+    {
+        Comment comment1 = new Comment("caleb", "very good", 4);
+        assertEquals("caleb", comment1.getAuthor());
+        assertEquals(4, comment1.getRating());
+    }
+
+    @Test
+    public void correctUpvote()
+    {
+        Comment comment1 = new Comment("caleb", "very good", 4);
+        comment1.upvote();
+        assertEquals(1, comment1.getVoteCount());
+    }
+
+    @Test
+    public void correctDownvote()
+    {
+        Comment comment1 = new Comment("caleb", "very good", 4);
+        comment1.downvote();
+        assertEquals(-1, comment1.getVoteCount());
+    }
 }
+
+
+
